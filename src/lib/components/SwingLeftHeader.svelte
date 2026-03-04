@@ -6,6 +6,7 @@
     export let string: string = "";
     export let fontSize: string = "20rem";
     export let fontWeight: string = "bold";
+    export let fontColor: string = "white";
     // Control when the animation should start
     export let autoplay: boolean = false;
 
@@ -26,6 +27,7 @@
         letterNodes.forEach(node => {
             node.style.fontSize = fontSize;
             node.style.fontWeight = fontWeight;
+            node.style.color = fontColor;
         });
 
         // Build a paused timeline so we can start it on demand
@@ -70,11 +72,7 @@
 </div>
 
 <style>
-    @font-face {
-        font-family: 'Neue Montreal';
-        src: url('../assets/fonts/NeueMontreal-Regular.otf') format('opentype');
-        font-weight: normal;
-    }
+    /* font-face moved to global stylesheet (src/app.css) and served from /static/fonts */
 
     @keyframes fly-in-from-left {
         0% {

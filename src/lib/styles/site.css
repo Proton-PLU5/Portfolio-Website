@@ -1,0 +1,902 @@
+/* Copied project-specific styles from src/app.css */
+
+/* Helper class to set the component font to Shadows Into Light */
+.font-shadows {
+    --swing-font-family: 'Shadows Into Light', cursive;
+}
+
+/* If you have the Shadows Into Light font locally, copy it to static/fonts
+   and this @font-face will load it from your site instead of Google. */
+@font-face {
+    font-family: 'Shadows Into Light';
+    src: url('/fonts/ShadowsIntoLight-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Global font-face: ensure the font is served from /static/fonts
+   Copy `NeueMontreal-Regular.otf` to `static/fonts/NeueMontreal-Regular.otf` */
+@font-face {
+    font-family: 'Neue Montreal';
+    src: url('/fonts/NeueMontreal-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+/* Neue Montreal: multiple weights and italics.
+   Copy the corresponding files from src/lib/assets/fonts to static/fonts/
+   (e.g. NeueMontreal-Regular.otf, NeueMontreal-Light.otf, NeueMontreal-Medium.otf,
+    NeueMontreal-Bold.otf and the *Italic variants) */
+@font-face {
+    font-family: 'Neue Montreal';
+    src: url('/fonts/NeueMontreal-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Neue Montreal';
+    src: url('/fonts/NeueMontreal-LightItalic.otf') format('opentype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Neue Montreal';
+    src: url('/fonts/NeueMontreal-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Neue Montreal';
+    src: url('/fonts/NeueMontreal-Italic.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Neue Montreal';
+    src: url('/fonts/NeueMontreal-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Neue Montreal';
+    src: url('/fonts/NeueMontreal-MediumItalic.otf') format('opentype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Neue Montreal';
+    src: url('/fonts/NeueMontreal-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Neue Montreal';
+    src: url('/fonts/NeueMontreal-BoldItalic.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+:root { --nav-height: 4rem; --accent: #ff8a00; }
+
+html {
+    scroll-behavior: smooth;
+}
+
+.section {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+    background-color: #121212;
+    /* ensure anchors land below the fixed nav */
+    scroll-margin-top: var(--nav-height);
+}
+
+/* Top navigation styles: horizontally centered, vertically aligned links */
+.nav-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* vertically center children */
+    pointer-events: auto;
+    z-index: 50;
+    height: var(--nav-height); /* fixed height so adding padding won't increase nav bar size */
+    box-sizing: border-box; /* include padding in height when needed */
+    padding: 0 0.75rem; /* horizontal padding only */
+}
+
+.nav-content {
+    width: 92%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center; /* center vertically */
+    justify-content: center; /* center nav-links horizontally */
+    gap: 1rem;
+    padding: 0 1rem;
+    background: transparent;
+    height: 100%; /* ensure the content fills the nav bar for proper vertical centering */
+}
+
+.nav-logo {
+    font-family: 'Neue Montreal', sans-serif;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    font-size: 1.25rem;
+    padding: 0.35rem 0.6rem;
+    display: inline-flex;
+    align-items: center;
+    position: absolute;
+    left: 1rem; /* pin logo to the far left of the nav bar */
+    top: 50%;
+    transform: translateY(-50%); /* vertically center within the nav bar */
+    z-index: 60;
+}
+
+.nav-links {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center; /* ensure vertical centering */
+    margin: 0 auto; /* center the links horizontally */
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    :root { --nav-height: 3.5rem; }
+    .nav-content { width: 95%; }
+    .nav-links a { padding: 0.35rem 0.6rem; font-size: 0.95rem; }
+    .nav-logo { font-size: 1.1rem; left: 0.6rem; }
+}
+
+.landing {
+    justify-content: center;
+    flex-direction: column; /* stack children vertically */
+    align-items: center; /* or center */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    color: white;
+}
+
+.titles-wrapper {
+    display: inline-block; /* shrink to fit content (title width) */
+    text-align: left; /* keep children left-aligned within the wrapper */
+}
+
+/* Per-instance helper: make a specific SwingUpHeader italic */
+
+
+.title {
+    position: relative;
+    line-height: 1;
+    /* Center the div horizontally */
+    align-items: left;
+    justify-content: left;
+    text-align: left;
+    /* Set text color to white */
+    color: white;
+}
+
+.subtitle {
+    position: relative;
+    line-height: 1;
+    /* Center the div horizontally */
+    align-items: left;
+    justify-content: left;
+    text-align: left;
+    /* Set text color to white */
+    color: white;
+}
+
+.italic-sub {
+    font-style: italic;                   /* make it italic */
+    --swing-font-size: 3.2rem;            /* override component CSS var */
+    /* prefer local Shadows font, fall back to Google-loaded cursive */
+    --swing-font-family: 'Shadows Into Light', cursive;
+    color: #fff;                          /* normal CSS rules also work */
+}
+
+/* Location */
+.location {
+    position: absolute;
+    top: 85vh;
+    left: 0;
+    width: 15vw;
+    height: 10vh;
+    border-radius: 0 5rem 5rem 0;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    gap: 0.1rem;
+    padding-left: 2rem;
+}
+
+.location p {
+    color: black;
+    font-size: 1.5rem;
+    line-height: 1.2;
+}
+
+.location .globe {
+    position: absolute;
+    left: calc(100% - 5rem - 2rem);
+    width: 6rem;
+    height: 6rem;
+    background-color: white;
+    border-radius: 50%;
+    background-image: url("/src/lib/assets/images/new_zealand.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    /* Center the image */
+    background-position: center;
+}
+
+.top-horizontal-seperator {
+    position: absolute;
+    top: 5vh;
+    width: 100vw;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.horizontal-seperator {
+    position: absolute;
+    bottom: 5vh;
+    left: 20vw;
+    width: 60vw;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 7vh;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    color: white;
+    opacity: 0;
+    justify-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+
+    animation: bounce 1s ease-in-out infinite;
+}
+
+.scroll-indicator .scroll-label {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 2rem;
+    color: white;
+    line-height: 1;
+    margin-bottom: 0.1rem;
+}
+
+@media (max-width: 768px) {
+    .scroll-indicator .scroll-label { font-size: 1.4rem; }
+    .scroll-indicator svg { width: 2.2rem; height: 2.2rem; }
+}
+
+.scroll-indicator svg {
+    width: 3rem;
+    height: 3rem;
+    margin-top: 0.5rem;
+    fill: white;
+}
+
+.about-me {
+    padding: 6% 8%;
+}
+
+/* layout for About section: left = visual (Three.js), right = text */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* left half = visual, right half = text */
+    gap: 2.5rem;
+    align-items: flex-start; /* keep text aligned to top; only visual (canvas) will be centered */
+}
+
+.about-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-panel {
+    position: relative; /* override absolute so it participates in grid */
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: white;
+}
+
+/* Make the ThreeScene fill 80% of the section on large screens with 10vh top/bottom padding */
+@media (min-width: 1024px) {
+    .about-me { padding: 6% 8%; }
+    /* don't force entire section height — canvas will size itself */
+    .about-visual .three-canvas { height: auto; width: 100%; min-height: 320px; max-height: 80vh; }
+}
+
+@media (max-width: 1024px) {
+    .about-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+    .about-visual { order: -1; }
+    .about-visual .three-canvas { height: 320px; }
+}
+
+.text-panel h1 {
+    font-size: 4rem;
+    font-family: 'Neue Montreal', 'sans-serif';
+    font-weight: 400;
+}
+
+.tabs-panel {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    padding: 6% 8%;
+}
+
+.tabs-panel h1 {
+    font-size: 4rem;
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.tabs-panel h3 {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.projects {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    padding: 6% 8%;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.projects h1 {
+    font-size: 4rem;
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.project {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2.5rem;
+}
+
+.project-image {
+    width: 40%; /* fixed visual thumbnail width */
+    height: 40%;
+    background-color: rgba(255,255,255,0.03);
+    object-fit: cover;
+    display: block;
+    border-radius: 0.6rem;
+    flex: 0 0 auto;
+    opacity: 0;
+    transition: opacity 220ms ease, transform 320ms ease;
+}
+
+.project-image.loaded {
+    opacity: 1;
+}
+
+/* ensure project element keeps its layout during transitions */
+.project {
+    display: flex;
+    flex-direction: row; /* image on the left, details on the right */
+    align-items: flex-start;
+    gap: 2.5rem;
+    transition: transform 320ms ease;
+}
+
+.project.entering {
+    transform: scale(0.98);
+}
+
+.project-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    min-height: 24rem; /* reserve vertical space to avoid layout jumps */
+    overflow: hidden; /* hide off-screen animation artifacts */
+}
+
+/* Footer with PREV / project bar / NEXT */
+.project-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* center under project details */
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    align-self: center; /* center within the project details column */
+    width: 100%;
+}
+
+.nav-label {
+    background: transparent;
+    border: none;
+    color: var(--accent);
+    font-weight: 700;
+    padding: 0.25rem 0.5rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: 0.06em;
+}
+
+.nav-label:hover { text-decoration: underline; }
+
+.project-bar {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-segment {
+    width: 25px; /* fixed small segments */
+    flex: none;
+    height: 0.6rem;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: border-color 160ms ease, opacity 160ms ease;
+    opacity: 0.85;
+}
+
+.project-segment.active {
+    border-bottom-color: var(--accent);
+    opacity: 1;
+}
+
+.project-segment:hover { border-bottom-color: rgba(255,138,0,0.65); }
+
+@media (max-width: 640px) {
+    .project-footer { flex-direction: column; align-items: stretch; gap: 0.6rem; }
+    .nav-label { align-self: center; }
+    .project-bar { height: 1rem; }
+}
+
+.project-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    flex: 1 1 auto;
+    align-items: flex-start; /* prevent children (like buttons) from stretching */
+}
+
+/* Ensure Project button sizes to its content when inside project-details */
+.project-details .project-button {
+    align-self: flex-start;
+    width: auto;
+    max-width: none;
+}
+/* Project widgets: horizontal row of small info cards */
+.project-widgets {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap; /* allow wrapping on smaller screens */
+    margin-top: 0.5rem;
+}
+
+/* Short description under project title */
+.project-desc {
+    margin: 0.0rem 0 0.8rem;
+    color: rgba(255,255,255,0.9);
+    max-width: 40vw; /* wrap distance: 40% of viewport */
+    line-height: 1.45;
+    font-size: 1rem;
+}
+
+@media (max-width: 1024px) {
+    .project-desc { max-width: 100%; }
+}
+
+.widget {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    background: rgba(255,255,255,0.02);
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    min-width: 8rem;
+    text-align: left;
+}
+
+.widget h3 {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* Project subtitle matching widget title style */
+.project-subtitle {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0 0 0.25rem 0;
+    font-weight: 500;
+}
+
+.widget p {
+    margin: 0;
+    font-weight: 600;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .project-widgets { flex-direction: column; gap: 0.6rem; }
+    .widget { min-width: auto; width: 100%; }
+}
+
+/* Tech badges inside widget */
+.tech-badges {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.tech-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.03);
+    color: white;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.tech-logo {
+    width: 1.5rem; /* slightly larger to avoid clipping */
+    height: 1.5rem;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: rgba(255,255,255,0.04);
+    padding: 0.12rem; /* inner padding so svg has breathing room */
+    box-sizing: border-box;
+}
+
+.tech-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+@media (max-width: 480px) {
+    .tech-logo { width: 1.2rem; height: 1.2rem; padding: 0.08rem; }
+}
+
+/* Keep transparent backgrounds so the devicon logos show correctly */
+.tech-py .tech-logo { background: transparent; }
+.tech-pt .tech-logo { background: transparent; }
+.tech-ocv .tech-logo { background: transparent; }
+
+.tech-badge .tech-name {
+    display: inline-block;
+}
+
+@media (max-width: 480px) {
+    .tech-badge { font-size: 0.8rem; padding: 0.2rem 0.45rem; }
+    .tech-logo { width: 1rem; height: 1rem; font-size: 0.65rem; }
+}
+.project-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: rgba(255,255,255,0.8);
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    font-size: 0.95rem;
+}
+
+.meta-spacer {
+    flex: 1 1 auto; /* push agency to the right */
+}
+
+@media (max-width: 1024px) {
+    .project { flex-direction: column; }
+    .project-image { width: 100%; height: 18rem; }
+    .project-meta { gap: 0.6rem; font-size: 0.9rem; }
+}
+
+.content-grid {
+    display: grid;
+    /* Left column (cards) takes 1.2 parts, Right column (preview) takes 1 part */
+    grid-template-columns: 1.2fr 1fr; 
+    gap: 3rem;
+    width: 100%;
+    height: 100%;
+    margin-top: 2rem;
+}
+
+/* Left Column: Stack cards vertically */
+.cards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Optional: Animation for clicking a card */
+.card-wrapper {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.card-wrapper:active {
+    transform: scale(0.98);
+}
+
+/* Right Column: The Panel */
+.preview-panel {
+    position: relative;
+    width: 100%;
+    /* OPTIONAL: Makes the image stick while you scroll cards if list is long */
+    height: fit-content; 
+    position: sticky;
+    top: 2rem; 
+}
+
+/* The actual box inside the right column */
+.panel-content {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 1rem;
+    padding: 1rem;
+    height: 60vh; /* Fixed height or auto */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.placeholder-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.placeholder-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 0.5rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+    .content-grid {
+        grid-template-columns: 1fr; /* Stack them on smaller screens */
+    }
+    .preview-panel {
+        display: none; /* Hide preview on mobile? or move to bottom */
+    }
+}
+
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-20px);
+    }
+}
+
+.button-bar {
+    position: absolute;
+    width: 100vw;
+    height: 5vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Contact section */
+.contact-me {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    padding: 6% 8%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #121212;
+    color: white;
+}
+
+.contact-card {
+    width: min(900px, 100%);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 1.25rem;
+    padding: 2.5rem;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    backdrop-filter: blur(10px);
+}
+
+.contact-header h1 {
+    margin: 0.35rem 0;
+    font-size: clamp(2.4rem, 3vw, 3.2rem);
+    line-height: 1.1;
+}
+
+.contact-header .eyebrow {
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+    margin: 0;
+}
+
+.contact-header .lede {
+    margin: 0;
+    color: rgba(255,255,255,0.82);
+    font-size: 1.05rem;
+    max-width: 58ch;
+}
+
+.contact-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.4rem;
+    border-radius: 999px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    transition: transform 120ms ease, box-shadow 180ms ease, background 180ms ease, border-color 180ms ease;
+    border: 1px solid transparent;
+}
+
+.pill.primary {
+    background: linear-gradient(120deg, #ff8a00, #ffb347);
+    color: #0b0b0b;
+    box-shadow: 0 10px 30px rgba(255,138,0,0.35);
+}
+
+.pill.ghost {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(255,255,255,0.14);
+    color: white;
+}
+
+.pill:hover {
+    transform: translateY(-1px);
+}
+
+.pill:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.contact-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    padding-top: 0.5rem;
+}
+
+.contact-details h3 {
+    margin: 0 0 0.3rem;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.06em;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.contact-details p {
+    margin: 0;
+    font-weight: 700;
+    color: white;
+}
+
+.social-footer {
+    width: 100vw;
+    padding: 1.5rem 0 2.5rem;
+    display: flex;
+    justify-content: center;
+    background: #121212;
+}
+
+.landing-social-footer {
+    position: absolute;
+    bottom: 0.6rem;
+    left: 0;
+    right: 0;
+    padding: 0;
+    background: transparent;
+}
+
+.social-icons {
+    display: inline-flex;
+    gap: 1.25rem;
+    align-items: center;
+}
+
+.social-icon {
+    width: 2.25rem;
+    height: 2.25rem;
+    color: white;
+    opacity: 0.82;
+    transition: transform 140ms ease, opacity 140ms ease;
+}
+
+.social-icon:hover {
+    opacity: 1;
+}
+
+.social-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .contact-me { padding: 12% 6%; }
+    .contact-card { padding: 1.6rem; }
+    .contact-header h1 { font-size: clamp(2rem, 4vw, 2.6rem); }
+}

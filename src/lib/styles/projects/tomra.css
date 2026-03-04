@@ -1,0 +1,212 @@
+@font-face {
+    font-family: 'Neue Montreal';
+    src: url('/fonts/NeueMontreal-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+* {
+    background-color: #121212;
+}
+
+.project-page {
+    display: flex;
+    color: #fff;
+    width: 60vw;
+    margin-left: 20vw;
+}
+
+.project-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    margin-top: 20vh;
+}
+
+
+.project-content h1 {
+    display: flex;
+    color: #fff;
+    font-size: 4vw;
+    font-weight: 400;
+    font-family: 'Neue Montreal';
+}
+
+/* table of contents styling */
+.project-content h2 {
+    display: flex;
+    margin-top: 5vh;
+    font-size: 2vw;
+    font-weight: 500;
+    justify-content: start;
+    align-self: flex-start; /* ensure it isn't centered by parent */
+    width: 60vw; /* match list width */
+    font-family: 'Neue Montreal';
+    color: #fff;
+    position: relative;
+}
+
+.project-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: -0.6rem;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #ff8a00;
+}
+
+.project-content h3 {
+    display: flex;
+    color: #fff;
+    font-size: 1.25vw;
+    font-weight: 400;
+    font-family: 'Neue Montreal';
+    align-self: flex-start;
+    margin-top: 2vh;
+    letter-spacing: 0.1vw;
+    text-transform: uppercase;
+}
+
+.project-content p {
+    /* paragraphs should flow normally; flex was causing each word/line to
+       become a flex item and break wrapping. use block layout so spans behave
+       inline. */
+    display: block;
+    color: #fff;
+    font-size: 1vw;
+    font-weight: 200;
+    font-family: 'Neue Montreal';
+    align-self: flex-start;
+    margin-top: 1vh;
+    line-height: 1.2vw;
+}
+
+/* make any <span> inside a paragraph stand out in orange */
+.project-content p span {
+    color: #ff8a00;
+    font-weight: 700;
+}
+
+
+.challenge-list {
+  margin: 1vh 0;
+  padding-left: 2vw;
+  list-style: disc;
+  color: #fff;
+  align-self: flex-start;
+}
+
+.challenge-list li {
+    list-style: none;
+    margin-bottom: 0.5vh;
+    font-family: 'Neue Montreal';
+    font-size: 1vw;
+    counter-increment: challenge;
+}
+
+.challenge-list li::before {
+  content: counter(challenge) ".";
+  text-align: right;
+  color: #ff8a00;
+  display: inline-block;
+  width: 1vw;
+  margin-left: -1.5vw; /* position bullet in the left padding area */
+  margin-right: 1vw;
+}
+
+.project-content h3::before {
+    /* decorative mark before each line, like markdown blockquote but more subtle */
+    content: '';
+    display: block;
+    width: 0.25vw;
+    height: 100%;
+    background-color: #5a5a5ab4;
+    border-radius: 0;
+    margin-right: 1vw;
+}
+
+
+.project-meta {
+    display: flex;
+    font-family: 'Neue Montreal';
+    font-weight: 800;
+    font-size: 0.75vw;
+    color: rgba(255,255,255,1);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    gap: 4vw;
+}
+
+.project-hero {
+    display: flex;
+    width: 60vw;
+    margin-top: 5vh;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.project-content .toc-list {
+    list-style: none; /* we'll draw numbers ourselves */
+    counter-reset: toc;
+    padding: 0 0 0 2vw; /* more left space for the markers */
+    margin: 1vh 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2vh;
+    width: 60vw;
+}
+
+.project-content .toc-list li {
+    counter-increment: toc;
+    font-family: 'Neue Montreal';
+    font-size: 1vw;
+    color: #fff;
+    position: relative;
+    text-transform: uppercase;
+    /* ensure text starts at same x after the fixed marker width */
+    padding-left: 3vw;
+}
+
+.project-content .toc-list li::before {
+    content: counter(toc) ".";
+    position: absolute;
+    left: 0;
+    width: 2vw;          /* slightly wider marker area */
+    text-align: right;
+    color: #ff8a10;
+    font-weight: bold;
+}
+
+.project-content .toc-list li a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.project-content .toc-list li a:hover {
+    color: #ff8a00;
+}
+
+/* layout for the intro/background block with a side image */
+.background-section {
+    display: flex;
+    gap: 2vw;
+    align-items: flex-start;
+    /* allow text to take most of the horizontal space */
+    width: 100%;
+}
+
+.background-section img.background-image {
+    /* adjust as needed; keeps image from overflowing */
+    max-width: 30vw;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0.5vw;
+}
+
