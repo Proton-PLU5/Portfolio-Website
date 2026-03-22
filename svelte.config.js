@@ -13,7 +13,7 @@ const config = {
 			// these options are set automatically — see docs
 			pages: 'build',
 			assets: 'build',
-			fallback: null,
+			fallback: 'index.html',
 			precompress: false,
 			strict: true
 			}),
