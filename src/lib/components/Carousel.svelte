@@ -90,7 +90,7 @@
                     aria-label={`Show slide ${i + 1}`}
                     aria-pressed={i === current}
                     on:click={() => { go(i); startAutoplay(); }}
-                ></button</button>
+                ></button>
             {/each}
         </div>
 
