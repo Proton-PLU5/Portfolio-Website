@@ -16,10 +16,8 @@ const config = {
 			strict: true
 		}),
 		paths: {
-			base: dev ? '' : '/Portfolio-Website',
-			assets: dev ? '' : '/Portfolio-Website'
+			base: dev ? '' : '/Portfolio-Website'
 		}
-		// trailingSlash removed
 	}
 };
 
