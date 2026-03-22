@@ -5,6 +5,7 @@
     import tomraLogo from '$lib/assets/images/tomra/tomra_logo.png';
     import tomraPhoto from '$lib/assets/images/tomra/IMG_0622.jpg';
 	import { projects, type Project } from '$lib/data/projects';
+    import { base } from '$app/paths';
 	const project: Project | undefined = projects.find((p) => p.id === 'tomra');
 	if (!project) {
 		// this should never happen in development, but guard anyway
@@ -14,13 +15,13 @@
 
 <section class="project-page">
     <div class="nav-bar">
-        <a href="#landing-section" class="nav-logo">MC</a>
+        <a href="{base}/#landing-section" class="nav-logo">MC</a>
         <div class="nav-content">
             <div class="nav-links">
                 <!-- navigate away from project page back to root + anchors -->
-                <NavButton href="/">Home</NavButton>
-                <NavButton href="/#projects">Projects</NavButton>
-                <NavButton href="/#contact-me">Contact</NavButton>
+                <NavButton href="{base}/">Home</NavButton>
+                <NavButton href="{base}/#projects">Projects</NavButton>
+                <NavButton href="{base}/#contact-me">Contact</NavButton>
             </div>
         </div>
     </div>

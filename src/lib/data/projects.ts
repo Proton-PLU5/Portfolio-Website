@@ -1,5 +1,6 @@
 import imgTomra from '$lib/assets/images/IMG_0632.jpg';
 import imgProject2 from '$lib/assets/images/tomra/IMG_0622.jpg';
+import { base } from '$app/paths';
 
 export type Project = {
     id: string;
@@ -23,7 +24,7 @@ export const projects: Project[] = [
         company: 'Tomra Food',
         tech: ['Python', 'PyTorch', 'OpenCV'],
         image: imgTomra,
-        url: '/projects/tomra'
+        url: `${base}/projects/tomra`
     },
     {
         id: 'project-2',
@@ -34,6 +35,6 @@ export const projects: Project[] = [
         company: 'Example Co',
         tech: ['Python'],
         image: imgProject2,
-        url: '/projects/project-2'
+        url: `${base}/projects/project-2`
     }
 ];

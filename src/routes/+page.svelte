@@ -3,8 +3,7 @@
 	import SwingUpHeader from '$lib/components/SwingUpHeader.svelte';
     import previewImage1 from '$lib/assets/images/IMG_0632.jpg';
     import previewImage2 from '$lib/assets/images/tomra/IMG_0622.jpg';
-    import { fadeIn } from '$lib/scripts/animations';
-    import { onMount, onDestroy } from 'svelte';
+    import { fadeIn } from '$lib/scripts/animations';    import { base } from '$app/paths';    import { onMount, onDestroy } from 'svelte';
     import RoundedButton from '$lib/components/RoundedButton.svelte';
     import * as ButtonGroup from "$lib/components/ui/button-group/index.js";
     import { Button } from "$lib/components/ui/button/index.js";
@@ -348,7 +347,7 @@
                             <p class="project-desc">{activeProject.description}</p>
                         {/if}
                         <!-- wrap the styled button in a normal link so navigation is handled by the browser -->
-                        <a href={activeProject.url ?? `/projects/${activeProject.id}`} aria-label="View project details">
+                        <a href={activeProject.url ?? `${base}/projects/${activeProject.id}`} aria-label="View project details">
                             <ProjectButton>
                                 VISIT
                             </ProjectButton>
