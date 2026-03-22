@@ -1,5 +1,5 @@
 import imgTomra from '$lib/assets/images/IMG_0632.jpg';
-import imgProject2 from '$lib/assets/images/IMG_0622.jpg';
+import imgProject2 from '$lib/assets/images/tomra/IMG_0622.jpg';
 
 export type Project = {
     id: string;

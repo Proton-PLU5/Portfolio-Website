@@ -2,7 +2,7 @@
     import SwingLeftHeader from '$lib/components/SwingLeftHeader.svelte';
 	import SwingUpHeader from '$lib/components/SwingUpHeader.svelte';
     import previewImage1 from '$lib/assets/images/IMG_0632.jpg';
-    import previewImage2 from '$lib/assets/images/IMG_0622.jpg';
+    import previewImage2 from '$lib/assets/images/tomra/IMG_0622.jpg';
     import { fadeIn } from '$lib/scripts/animations';
     import { onMount, onDestroy } from 'svelte';
     import RoundedButton from '$lib/components/RoundedButton.svelte';
