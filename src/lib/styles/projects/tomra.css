@@ -105,7 +105,7 @@
     list-style: none;
     margin-bottom: 0.5vh;
     font-family: 'Neue Montreal';
-    font-size: 1vw;
+    font-size: 1.75em;
     counter-increment: challenge;
 }
 
@@ -144,7 +144,7 @@
     display: flex;
     font-family: 'Neue Montreal';
     font-weight: 800;
-    font-size: 0.75vw;
+    font-size: 1.5em;
     color: rgba(255,255,255,1);
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -174,7 +174,7 @@
 .project-content .toc-list li {
     counter-increment: toc;
     font-family: 'Neue Montreal';
-    font-size: 1vw;
+    font-size: 1.75em;
     color: #fff;
     position: relative;
     text-transform: uppercase;
