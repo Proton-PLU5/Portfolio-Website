@@ -1,6 +1,8 @@
 <script lang="ts">
     import SwingLeftHeader from '$lib/components/SwingLeftHeader.svelte';
 	import SwingUpHeader from '$lib/components/SwingUpHeader.svelte';
+    import previewImage1 from '$lib/assets/images/IMG_0632.jpg';
+    import previewImage2 from '$lib/assets/images/IMG_0622.jpg';
     import { fadeIn } from '$lib/scripts/animations';
     import { onMount, onDestroy } from 'svelte';
     import RoundedButton from '$lib/components/RoundedButton.svelte';
@@ -25,10 +27,9 @@
     let socialCleanups: Array<() => void> = [];
     let showSubtitle = false;
     // images for the experience preview carousel (with captions)
-    // paths must start with a slash so they always resolve from the root
     const previewImages: Array<{ src: string; caption: string }> = [
-        { src: '/src/lib/assets/images/IMG_0632.jpg', caption: 'Collecting optical data of internal defects in apples.' },
-        { src: '/src/lib/assets/images/IMG_0622.jpg', caption: 'Annotating severity of internal defects in apples.' }
+        { src: previewImage1, caption: 'Collecting optical data of internal defects in apples.' },
+        { src: previewImage2, caption: 'Annotating severity of internal defects in apples.' }
     ];
 
     let previewIndex = 0;

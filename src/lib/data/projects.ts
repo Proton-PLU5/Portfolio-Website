@@ -1,3 +1,6 @@
+import imgTomra from '$lib/assets/images/IMG_0632.jpg';
+import imgProject2 from '$lib/assets/images/IMG_0622.jpg';
+
 export type Project = {
     id: string;
     subtitle: string;
@@ -19,7 +22,7 @@ export const projects: Project[] = [
         year: '2025',
         company: 'Tomra Food',
         tech: ['Python', 'PyTorch', 'OpenCV'],
-        image: '/src/lib/assets/images/IMG_0632.jpg',
+        image: imgTomra,
         url: '/projects/tomra'
     },
     {
@@ -30,7 +33,7 @@ export const projects: Project[] = [
         year: '2024',
         company: 'Example Co',
         tech: ['Python'],
-        image: '/src/lib/assets/images/IMG_0622.jpg',
+        image: imgProject2,
         url: '/projects/project-2'
     }
 ];

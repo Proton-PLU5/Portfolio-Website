@@ -1,6 +1,9 @@
 <script lang="ts">
 	import '$lib/styles/projects/tomra.css';
     import NavButton from '$lib/components/NavButton.svelte';
+    import tomraSegmentation from '$lib/assets/images/segmentation_result.png';
+    import tomraLogo from '$lib/assets/images/tomra/tomra_logo.png';
+    import tomraPhoto from '$lib/assets/images/tomra/IMG_0622.jpg';
 	import { projects, type Project } from '$lib/data/projects';
 	const project: Project | undefined = projects.find((p) => p.id === 'tomra');
 	if (!project) {
@@ -28,7 +31,7 @@
 		<h1>Apple Annotation Tools</h1>
 		<div class="project-meta">Internship Project, Tomra Food, 2025</div>
 		<img
-			src="/src/lib/assets/images/segmentation_result.png"
+			src={tomraSegmentation}
 			alt="Apple segmentation model output"
 			class="project-hero"
 		/>
@@ -54,7 +57,7 @@
 			</p>
 			<div class="image-container">
                 <img
-				src="/src/lib/assets/images/tomra/tomra_logo.png"
+				src={tomraLogo}
 				alt="Illustration of the problem or machine"
 				class="background-image"
 			    />
@@ -98,7 +101,7 @@
 
         <div class="image-container">
             <img
-                src="/src/lib/assets/images/tomra/IMG_0622.jpg"
+                src={tomraPhoto}
                 alt="Illustration of the problem or machine"
                 class="image">
             <p>Present annotation process</p>
