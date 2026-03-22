@@ -51,6 +51,8 @@
     onDestroy(() => stopAutoplay());
 </script>
 
+<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <div
     class="carousel"
     role="region"
@@ -88,7 +90,7 @@
                     aria-label={`Show slide ${i + 1}`}
                     aria-pressed={i === current}
                     on:click={() => { go(i); startAutoplay(); }}
-                />
+                ></button</button>
             {/each}
         </div>
 

@@ -35,6 +35,7 @@
 </script>
 
 <div class="tabs">
+  <!-- svelte-ignore a11y-interactive-supports-focus -->
   <div class="tab-list" role="tablist" on:keydown={onKeydown}>
     {#each labels as label, i}
       <button
@@ -85,11 +86,11 @@
     box-shadow: 0 10px 30px rgba(255,138,0,0.25);
     font-weight: 700;
   }
-  .tab-panels > * {
+  .tab-panels > :global(*) {
     display: block;
     color: white;
   }
-  .tab-panels > *[hidden] {
+  .tab-panels > :global(*[hidden]) {
     display: none !important;
   }
 </style>

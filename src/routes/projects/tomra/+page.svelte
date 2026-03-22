@@ -45,7 +45,7 @@
 			<li><a href="#conclusion">Conclusion</a></li>
 		</ul>
 
-		<h2>Introduction</h2>
+		<h2 id="problem">Introduction</h2>
 		<h3>Background</h3>
 		<!-- container holds text on left and an explanatory image on the right -->
 		<div class="background-section">
@@ -110,7 +110,7 @@
 
         
 
-        <h2>Approach</h2>
+        <h2 id="approach">Approach</h2>
         
         <h3>Research</h3>
         <p>

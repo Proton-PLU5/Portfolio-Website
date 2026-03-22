@@ -333,7 +333,8 @@
 </div>
 
 <div class="section">
-    <div class="projects" id="projects" data-scroll="projects" tabindex="0" on:keydown={(e) => { if (e.key === 'ArrowLeft') prevProject(); if (e.key === 'ArrowRight') nextProject(); }}>
+    <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
+    <div class="projects" id="projects" data-scroll="projects" role="region" aria-label="Projects" tabindex="0" on:keydown={(e) => { if (e.key === 'ArrowLeft') prevProject(); if (e.key === 'ArrowRight') nextProject(); }}>
         <h1>Projects</h1>
 
         <div class="project-container">
