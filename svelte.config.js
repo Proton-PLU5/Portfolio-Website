@@ -16,10 +16,10 @@ const config = {
 			strict: true
 		}),
 		paths: {
-			base: dev ? '' : '/Portfolio-Website', // repo name
+			base: dev ? '' : '/Portfolio-Website',
 			assets: dev ? '' : '/Portfolio-Website'
-		},
-		trailingSlash: 'never' // optional, prevents double slashes in URLs
+		}
+		// trailingSlash removed
 	}
 };
 
