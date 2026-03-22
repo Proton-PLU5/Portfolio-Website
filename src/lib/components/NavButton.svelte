@@ -25,10 +25,11 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 0.55rem 1rem;
-  border-radius: 0.4rem;
-  border: 2px solid rgba(255, 255, 255, 0.28);
+  /* scale spacing with viewport so buttons shrink/grow with screen size */
+  gap: 0.5vw;
+  padding: 0.7vh 1.2vw;
+  border-radius: 0.4vw;
+  border: 0.2vw solid rgba(255, 255, 255, 0.28);
   background: transparent;
   color: var(--nav-idle);
   cursor: pointer;
@@ -38,6 +39,9 @@
   text-decoration: none;
   letter-spacing: 0.08em;
   line-height: 1;
+  /* prevent mobile/desktop tap highlight and selection backgrounds */
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
 }
 
 :global(.nav-button::before) {
@@ -58,15 +62,19 @@
   transition: letter-spacing 180ms ease;
 }
 
+/* remove highlight animation on hover/focus by keeping ::before scaled down */
 :global(.nav-button:hover::before),
 :global(.nav-button:focus-visible::before) {
-  transform: scaleX(1);
+  transform: scaleX(0);
 }
 
 :global(.nav-button:hover),
 :global(.nav-button:focus-visible) {
-  color: var(--bg-color);
+  /* keep text visible by retaining original color; only the border and
+     background animation change */
+  /* color: var(--bg-color); */
   border-color: var(--accent);
+  background: transparent; /* ensure no background sneaks in */
 }
 
 :global(.nav-button:hover .btn-content),
@@ -85,6 +93,10 @@
 }
 
 @media (max-width: 768px) {
-  :global(.nav-button) { padding: 0.5rem 0.85rem; }
+  /* on small screens, keep viewport-based units but slightly adjust so text
+     doesn’t vanish */
+  :global(.nav-button) {
+    padding: 1.2vh 2vw;
+  }
 }
 </style>

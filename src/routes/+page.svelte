@@ -148,21 +148,21 @@
     };
 </script>
 
-<div class="section" id="landing-section">
-
-    <div class="nav-bar">
-        <a href="#landing-section" class="nav-logo">MC</a>
-        <div class="nav-content">
-            <div class="nav-links">
-                <NavButton href="#about-me">About Me</NavButton>
-                <NavButton href="#experience">Experience</NavButton>
-                <NavButton href="#projects">Projects</NavButton>
-                <NavButton href="#contact-me">Contact</NavButton>
-            </div>
+<div class="nav-bar">
+    <a href="#landing-section" class="nav-logo">MC</a>
+    <div class="nav-content">
+        <div class="nav-links">
+            <NavButton href="#about-me">About Me</NavButton>
+            <NavButton href="#experience">Experience</NavButton>
+            <NavButton href="#projects">Projects</NavButton>
+            <NavButton href="#contact-me">Contact</NavButton>
         </div>
     </div>
+</div>
 
-    <div class="top-horizontal-seperator"></div>
+<div class="top-horizontal-seperator"></div>
+
+<div class="section" id="landing-section">
 
     <div class="landing" data-scroll="landing">
         <div class="titles-wrapper">

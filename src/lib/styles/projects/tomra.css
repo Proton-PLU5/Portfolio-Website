@@ -31,7 +31,7 @@
 .project-content h1 {
     display: flex;
     color: #fff;
-    font-size: 4vw;
+    font-size: 8em;
     font-weight: 400;
     font-family: 'Neue Montreal';
 }
@@ -40,7 +40,7 @@
 .project-content h2 {
     display: flex;
     margin-top: 5vh;
-    font-size: 2vw;
+    font-size: 4em;
     font-weight: 500;
     justify-content: start;
     align-self: flex-start; /* ensure it isn't centered by parent */
@@ -63,12 +63,12 @@
 .project-content h3 {
     display: flex;
     color: #fff;
-    font-size: 1.25vw;
+    font-size: 2.5em;
     font-weight: 400;
     font-family: 'Neue Montreal';
     align-self: flex-start;
     margin-top: 2vh;
-    letter-spacing: 0.1vw;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
 }
 
@@ -78,12 +78,12 @@
        inline. */
     display: block;
     color: #fff;
-    font-size: 1vw;
-    font-weight: 200;
+    font-size: 1.75em;
+    font-weight: 400;
     font-family: 'Neue Montreal';
     align-self: flex-start;
     margin-top: 1vh;
-    line-height: 1.2vw;
+    line-height: 1.2em;
 }
 
 /* make any <span> inside a paragraph stand out in orange */
@@ -117,6 +117,15 @@
   width: 1vw;
   margin-left: -1.5vw; /* position bullet in the left padding area */
   margin-right: 1vw;
+}
+
+.image-container {
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.image-container p {
+    text-align: center;
 }
 
 .project-content h3::before {
@@ -210,3 +219,80 @@
     border-radius: 0.5vw;
 }
 
+/* Top navigation styles: horizontally centered, vertically aligned links */
+.nav-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* vertically center children */
+    pointer-events: auto;
+    z-index: 50;
+    /* height scaled with viewport, remove custom property dependency */
+    height: 5vh;
+    box-sizing: border-box; /* include padding in height when needed */
+    padding: 0 1vh; /* horizontal padding only */
+    font-size: 1.25vh; /* base font scale if needed */
+}
+
+.nav-content {
+    width: 100%;
+    display: flex;
+    align-items: center; /* center vertically */
+    justify-content: center; /* center nav-links horizontally */
+    gap: 1vw;
+    padding: 0 1vh;
+    background: transparent;
+    height: 100%; /* ensure the content fills the nav bar for proper vertical centering */
+}
+
+.nav-logo {
+    font-family: 'Neue Montreal', sans-serif;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    font-size: 2vh; /* scale with viewport height */
+    padding: 0.5vh 1vw;
+    display: inline-flex;
+    align-items: center;
+    position: absolute;
+    left: 1vw; /* pin logo to the far left of the nav bar */
+    top: 50%;
+    transform: translateY(-50%); /* vertically center within the nav bar */
+    z-index: 60;
+}
+
+.nav-links {
+    display: flex;
+    gap: 0.5vw; /* viewport‑relative gap to scale with width */
+    align-items: center; /* ensure vertical centering */
+    margin: 0 auto; /* center the links horizontally */
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    /* adjust viewport scaling on small screens */
+    .nav-bar { height: 6vh; padding: 0 2vw; }
+    .nav-content { width: 95%; }
+    .nav-links { gap: 2vw; }
+    .nav-links a { padding: 1.5vh 2vw; font-size: 2vh; }
+    .nav-logo { font-size: 3vh; left: 2vw; }
+}
+
+.top-horizontal-seperator {
+    position: absolute;
+    top: 5vh;
+    width: 100vw;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: block;
+    left: 0;
+}
